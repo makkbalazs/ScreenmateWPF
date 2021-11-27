@@ -2,12 +2,17 @@
 using Screenmate.Models;
 using Screenmate.MVVM;
 using Screenmate.Services;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Screenmate.ViewModels
 {
     public class SettingsViewModel : NotfiyPropertyChanged, ISettingsViewModel
     {
+        /// <summary>
+        /// The path and name of the settings file
+        /// </summary>
+        private string settingsFile = "settings.json";
         /// <summary>
         /// The settings
         /// </summary>
@@ -74,9 +79,9 @@ namespace Screenmate.ViewModels
         /// Initializes model. First tries to load settings, if it fails, sets defaults.
         /// </summary>
         /// <returns></returns>
-        private async Task InitializeModel()
+        private void InitializeModel()
         {
-            if (!await LoadSettings())
+            if (!LoadSettings())
             {
                 SetDefaults();
             }
@@ -96,7 +101,7 @@ namespace Screenmate.ViewModels
         {
             if(!Settings.Initialized)
             {
-                await InitializeModel();
+                InitializeModel();
             }
         }
 
@@ -119,6 +124,9 @@ namespace Screenmate.ViewModels
                 FollowingSpeed = 10,
                 //Entertainment
                 EntertainingEnabled = false,
+                WindowMovingEnabled = true,
+                WindowClosingEnabled = false,
+                BombingEnabled = true,
                 //Monitoring & Warning
                 MonitoringEnabled = false,
                 WarningEnabled = false
@@ -130,26 +138,26 @@ namespace Screenmate.ViewModels
         /// Saves settings to settings.json file.
         /// </summary>
         /// <returns></returns>
-        private async Task SaveSettings()
+        private void SaveSettings()
         {
-            string json = JsonConvert.SerializeObject(Settings);
-            //IStorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-            //IStorageFile storageFile = await storageFolder.CreateFileAsync("settings.json", CreationCollisionOption.ReplaceExisting);
-            //await FileIO.WriteTextAsync(storageFile, json);
+            string json = JsonConvert.SerializeObject(Settings, Formatting.Indented);
+            File.WriteAllText(settingsFile, json);
         }
 
         /// <summary>
         /// Loads settings from settings.json file.
         /// </summary>
         /// <returns><c>true</c> if settings could be loaded; otherwise <c>false</c></returns>
-        private async Task<bool> LoadSettings()
+        private bool LoadSettings()
         {
             bool result;
             try
             {
-                //IStorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-                //IStorageFile storageFile = await storageFolder.GetFileAsync("settings.json");
-                string json = null /*await FileIO.ReadTextAsync(storageFile)*/;
+                string json = null;
+                if (File.Exists(settingsFile))
+                {
+                    json = File.ReadAllText(settingsFile);
+                }
                 SettingsModel settings = JsonConvert.DeserializeObject<SettingsModel>(json);
                 result = settings != null;
                 if(result)

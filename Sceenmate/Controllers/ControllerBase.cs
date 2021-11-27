@@ -17,7 +17,7 @@ namespace Screenmate.Controllers
 
         #region Constructors
         /// <summary>
-        /// 
+        /// Creates new instance of <see cref="ControllerBase"/>.
         /// </summary>
         /// <param name="interval">Timer interval in ms.</param>
         public ControllerBase(int interval = 10)

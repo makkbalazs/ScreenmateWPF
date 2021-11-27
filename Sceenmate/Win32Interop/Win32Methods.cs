@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Sceenmate.Win32Interop
+namespace Screenmate.Win32Interop
 {
     /// <summary>
     /// Provides methods for Win32Interop.

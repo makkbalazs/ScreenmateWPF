@@ -135,6 +135,57 @@ namespace Screenmate.Models
             set { SetField(ref _entertainingEnabled, value); }
         }
 
+        /// <summary>
+        /// Enables window moving
+        /// </summary>
+        private bool _windowMovingEnabled;
+
+        /// <summary>
+        /// Gets or sets if window moving is enabled.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if window moving is enabled; otherwise <c>false</c>
+        /// </value>
+        public bool WindowMovingEnabled
+        {
+            get { return _windowMovingEnabled; }
+            set { SetField(ref _windowMovingEnabled, value); }
+        }
+
+        /// <summary>
+        /// Enables window closing
+        /// </summary>
+        private bool _windowClosingEnabled;
+
+        /// <summary>
+        /// Gets or sets if window closing is enabled.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if window closing is enabled; otherwise <c>false</c>
+        /// </value>
+        public bool WindowClosingEnabled
+        {
+            get { return _windowClosingEnabled; }
+            set { SetField(ref _windowClosingEnabled, value); }
+        }
+
+        /// <summary>
+        /// Enables bombing
+        /// </summary>
+        private bool _bombingEnabled;
+
+        /// <summary>
+        /// Gets or sets if bombing is enabled.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if bombing is enabled; otherwise <c>false</c>
+        /// </value>
+        public bool BombingEnabled
+        {
+            get { return _bombingEnabled; }
+            set { SetField(ref _bombingEnabled, value); }
+        }
+
         #endregion
 
         #region Monitoring & Warning

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
+﻿using System.Runtime.InteropServices;
 
-namespace Sceenmate.Win32Interop
+namespace Screenmate.Win32Interop
 {
     /// <summary>
     /// Point struct for Win32 interop

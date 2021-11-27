@@ -1,7 +1,7 @@
-﻿<Application x:Class="Sceenmate.App"
+﻿<Application x:Class="Screenmate.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Sceenmate"
+             xmlns:local="clr-namespace:Screenmate"
              StartupUri="Views/SettingsWindow.xaml">
     <Application.Resources>
          

@@ -70,6 +70,29 @@
         /// </value>
         bool EntertainingEnabled { get; }
 
+        /// <summary>
+        /// Gets if window moving is enabled.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if window moving is enabled; otherwise <c>false</c>
+        /// </value>
+        public bool WindowMovingEnabled { get; }
+
+        /// <summary>
+        /// Gets if window closing is enabled.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if window closing is enabled; otherwise <c>false</c>
+        /// </value>
+        public bool WindowClosingEnabled { get; }
+
+        /// <summary>
+        /// Gets if bombing is enabled.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if bombing is enabled; otherwise <c>false</c>
+        /// </value>
+        public bool BombingEnabled { get; }
         #endregion
 
         #region Monitoring & Warning

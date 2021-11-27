@@ -8,6 +8,16 @@ namespace Screenmate.Controllers
     /// </summary>
     public class MonitoringAndWarningController : ControllerBase
     {
+        #region Constructors
+        /// <summary>
+        /// Creates new instance of <see cref="MonitoringAndWarningController"/>.
+        /// </summary>
+        /// <param name="interval">Timer interval in ms.</param>
+        public MonitoringAndWarningController(int interval = 2000) : base(interval)
+        {
+        }
+        #endregion
+
         #region Methods
         /// <summary>
         /// 

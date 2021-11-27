@@ -8,6 +8,16 @@ namespace Screenmate.Controllers
     /// </summary>
     public class EntertainmentController : ControllerBase
     {
+        #region Constructors
+        /// <summary>
+        /// Creates new instance of <see cref="EntertainmentController"/>.
+        /// </summary>
+        /// <param name="interval">Timer interval in ms.</param>
+        public EntertainmentController(int interval = 60000) : base(interval)
+        {
+        }
+        #endregion
+
         #region Methods
         /// <summary>
         /// 

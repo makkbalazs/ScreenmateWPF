@@ -1,4 +1,4 @@
-﻿using Sceenmate.Views;
+﻿using Screenmate.Views;
 using System.Windows;
 
 namespace Screenmate.Animation

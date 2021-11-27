@@ -1,7 +1,7 @@
 ﻿using Screenmate.ViewModels;
 using System.Windows;
 
-namespace Sceenmate.Views
+namespace Screenmate.Views
 {
     /// <summary>
     /// Interaction logic for SettingsWindow.xaml

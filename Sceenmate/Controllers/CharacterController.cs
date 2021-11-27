@@ -1,6 +1,6 @@
-﻿using Sceenmate.Win32Interop;
-using Screenmate.MVVM;
+﻿using Screenmate.MVVM;
 using Screenmate.Services;
+using Screenmate.Win32Interop;
 
 namespace Screenmate.Controllers
 {
@@ -18,6 +18,16 @@ namespace Screenmate.Controllers
         /// The current position of the cursor
         /// </summary>
         private Point _currentCursorPos;
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Creates new instance of <see cref="CharacterController"/>.
+        /// </summary>
+        /// <param name="interval">Timer interval in ms.</param>
+        public CharacterController(int interval = 10) : base(interval)
+        {
+        }
         #endregion
 
         #region Methods
@@ -47,7 +57,7 @@ namespace Screenmate.Controllers
         private void UpdateCursorPos()
         {
             Point cursorPos = new Point();
-            if (Win32Interop.GetCursorPos(out cursorPos))
+            if (Win32Methods.GetCursorPos(out cursorPos))
             {
                 System.Console.WriteLine(cursorPos.X.ToString() + "; " + cursorPos.Y.ToString() + '\n');
                 _previousCursorPos = _currentCursorPos;
@@ -55,11 +65,19 @@ namespace Screenmate.Controllers
             }
         }
 
+        /// <summary>
+        /// Wander logic
+        /// </summary>
         private void Wander()
         {
-
+            //Nem szeretek kódba írni, de ide kell valami logika, hogy ha a following is be van kapcsolva, akkor
+            //mi legyen. Ha kicsit mozdult a kurzor/nem mozdult, akkor vándoroljon? Vagy legyen a settingsben kizáró
+            //a wander és a follow?
         }
 
+        /// <summary>
+        /// Cursor following logic
+        /// </summary>
         private void FollowCursor()
         {
             

@@ -3,7 +3,7 @@ using Screenmate.Services;
 using System.Collections.Generic;
 using System.Windows;
 
-namespace Sceenmate
+namespace Screenmate
 {
     /// <summary>
     /// Interaction logic for App.xaml
