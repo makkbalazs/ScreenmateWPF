@@ -5,6 +5,8 @@
     /// </summary>
     public interface IAnimator
     {
+        void ShowTransparentWindow();
+
         void ShowImage(int posx, int posy);
     }
 }

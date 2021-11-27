@@ -1,4 +1,5 @@
 ﻿using Screenmate.Controllers;
+using Screenmate.Services;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -27,6 +28,7 @@ namespace Sceenmate
         {
             base.OnStartup(e);
             StartControllers();
+            AnimationService.Instance.ShowTransparentWindow();
         }
 
         /// <summary>

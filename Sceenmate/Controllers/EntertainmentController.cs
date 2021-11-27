@@ -17,7 +17,7 @@ namespace Screenmate.Controllers
             ISettings settings = SettingsService.Instance;
             if(settings.Enabled && settings.EntertainingEnabled)
             {
-
+                AnimationService.Instance.ShowImage(0, 0);
             }
         }
         #endregion

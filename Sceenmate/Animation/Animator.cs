@@ -16,11 +16,15 @@ namespace Screenmate.Animation
         public Animator()
         {
             _canvasWindow = new CanvasWindow();
-            _canvasWindow.Show();
         }
         #endregion
 
         #region Methods
+        public void ShowTransparentWindow()
+        {
+            _canvasWindow.Show();
+        }
+
         public void ShowImage(int posx, int posy)
         {
 

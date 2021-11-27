@@ -6,8 +6,16 @@
         xmlns:local="clr-namespace:Sceenmate.Views"
         mc:Ignorable="d"
         Title="CanvasWindow" Height="450" Width="800"
-        Opacity="0">
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Opacity="0"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
+    
     <Grid>
-        
+        <InkCanvas>
+            
+        </InkCanvas>
     </Grid>
 </Window>
