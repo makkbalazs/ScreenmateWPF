@@ -2,6 +2,7 @@
 using Screenmate.Models;
 using Screenmate.MVVM;
 using Screenmate.Services;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -125,7 +126,18 @@ namespace Screenmate.ViewModels
                 //Entertainment
                 EntertainingEnabled = false,
                 WindowMovingEnabled = true,
+                ProcessesCanBeMoved = new List<string>()
+                {
+                    "notepad",
+                    "explorer",
+                    "chrome"
+                },
                 WindowClosingEnabled = false,
+                ProcessesCanBeClosed = new List<string>()
+                {
+                    "notepad",
+                    "explorer"
+                },
                 BombingEnabled = true,
                 //Monitoring & Warning
                 MonitoringEnabled = false,

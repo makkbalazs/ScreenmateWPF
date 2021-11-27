@@ -1,4 +1,5 @@
 ﻿using Screenmate.MVVM;
+using System.Collections.Generic;
 
 namespace Screenmate.Models
 {
@@ -153,6 +154,23 @@ namespace Screenmate.Models
         }
 
         /// <summary>
+        /// The names of processes of which's window can be moved
+        /// </summary>
+        private List<string> _processesCanBeMoved;
+
+        /// <summary>
+        /// Gets or sets the names of processes of which's window can be moved.
+        /// </summary>
+        /// <value>
+        /// The names of processes of which's window can be moved
+        /// </value>
+        public List<string> ProcessesCanBeMoved
+        {
+            get { return _processesCanBeMoved; }
+            set { SetField(ref _processesCanBeMoved, value); }
+        }
+
+        /// <summary>
         /// Enables window closing
         /// </summary>
         private bool _windowClosingEnabled;
@@ -167,6 +185,23 @@ namespace Screenmate.Models
         {
             get { return _windowClosingEnabled; }
             set { SetField(ref _windowClosingEnabled, value); }
+        }
+
+        /// <summary>
+        /// The names of processes which's window can be closed
+        /// </summary>
+        private List<string> _processesCanBeClosed;
+
+        /// <summary>
+        /// Gets or sets the names of processes which's window can be closed.
+        /// </summary>
+        /// <value>
+        /// The names of processes which's window can be closed
+        /// </value>
+        public List<string> ProcessesCanBeClosed
+        {
+            get { return _processesCanBeClosed; }
+            set { SetField(ref _processesCanBeClosed, value); }
         }
 
         /// <summary>

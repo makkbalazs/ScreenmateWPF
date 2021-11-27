@@ -11,7 +11,8 @@
         Opacity="0"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        Topmost="True">
     
     <Grid>
         <InkCanvas>

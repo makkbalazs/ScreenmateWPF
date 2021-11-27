@@ -1,4 +1,6 @@
-﻿namespace Screenmate.MVVM
+﻿using System.Collections.Generic;
+
+namespace Screenmate.MVVM
 {
     /// <summary>
     /// Interface to access settings.
@@ -76,7 +78,15 @@
         /// <value>
         /// <c>true</c> if window moving is enabled; otherwise <c>false</c>
         /// </value>
-        public bool WindowMovingEnabled { get; }
+        bool WindowMovingEnabled { get; }
+
+        /// <summary>
+        /// Gets the names of processes of which's window can be moved.
+        /// </summary>
+        /// <value>
+        /// The names of processes of which's window can be moved
+        /// </value>
+        List<string> ProcessesCanBeMoved { get; }
 
         /// <summary>
         /// Gets if window closing is enabled.
@@ -84,7 +94,15 @@
         /// <value>
         /// <c>true</c> if window closing is enabled; otherwise <c>false</c>
         /// </value>
-        public bool WindowClosingEnabled { get; }
+        bool WindowClosingEnabled { get; }
+
+        /// <summary>
+        /// Gets the names of processes which's window can be closed.
+        /// </summary>
+        /// <value>
+        /// The names of processes which's window can be closed
+        /// </value>
+        List<string> ProcessesCanBeClosed { get; }
 
         /// <summary>
         /// Gets if bombing is enabled.
@@ -92,7 +110,7 @@
         /// <value>
         /// <c>true</c> if bombing is enabled; otherwise <c>false</c>
         /// </value>
-        public bool BombingEnabled { get; }
+        bool BombingEnabled { get; }
         #endregion
 
         #region Monitoring & Warning
