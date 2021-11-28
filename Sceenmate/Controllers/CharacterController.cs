@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows;
 using Screenmate.MVVM;
 using Screenmate.Services;
@@ -27,7 +28,7 @@ namespace Screenmate.Controllers
         /// Creates new instance of <see cref="CharacterController"/>.
         /// </summary>
         /// <param name="interval">Timer interval in ms.</param>
-        public CharacterController(int interval = 100) : base(interval)
+        public CharacterController(int interval = 10) : base(interval)
         {
         }
         #endregion
@@ -83,15 +84,13 @@ namespace Screenmate.Controllers
         /// </summary>
         private void FollowCursor()
         {
-            if (_previousCursorPos.X != _currentCursorPos.X && _previousCursorPos.Y != _currentCursorPos.Y)
+            Vector r = new Vector(AnimationService.Instance.getRonLeft(), AnimationService.Instance.getRonTop());
+            r = AnimationService.Instance.convertCoords(r);
+            Vector n = new Vector(_currentCursorPos.X - 60 - r.X, _currentCursorPos.Y - 80 - r.Y);
+            if (Math.Abs(n.X) > 60 || Math.Abs(n.Y) > 80)
             {
-                if (Math.Abs(_currentCursorPos.X) > 60 || Math.Abs(_currentCursorPos.Y) > 80)
-                {
-                    Vector n = new Vector (_currentCursorPos.X, _currentCursorPos.Y);
-                    n.Normalize();
-                    AnimationService.Instance.moveRon(n.X, n.Y);
-                }
-                else AnimationService.Instance.moveRon(0, 0);
+                n.Normalize();
+                AnimationService.Instance.moveRon(4*n.X, 4*n.Y);
             }
             else AnimationService.Instance.moveRon(0, 0);
         }
