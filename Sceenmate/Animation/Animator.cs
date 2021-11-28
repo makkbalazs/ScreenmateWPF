@@ -1,5 +1,4 @@
 ﻿using Screenmate.Views;
-using System.Windows;
 
 namespace Screenmate.Animation
 {
@@ -32,7 +31,7 @@ namespace Screenmate.Animation
 
         public void moveRon(double x, double y)
         {
-            _canvasWindow.moveRon(x, y);
+            _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.moveRon(x, y));
         }
         #endregion
     }

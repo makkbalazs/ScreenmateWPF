@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Windows.Threading;
 using WpfAnimatedGif;
 
 namespace Screenmate.Views
@@ -18,9 +12,14 @@ namespace Screenmate.Views
     /// </summary>
     public partial class CanvasWindow : Window
     {
+        private Dispatcher _dispatcher;
+
+        public Dispatcher Dispatcher { get { return _dispatcher; } }
+
         public CanvasWindow()
         {
             InitializeComponent();
+            _dispatcher = Dispatcher.CurrentDispatcher;
         }
 
         public void moveRon(double x, double y)
