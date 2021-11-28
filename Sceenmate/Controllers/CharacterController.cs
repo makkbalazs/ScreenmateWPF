@@ -25,7 +25,7 @@ namespace Screenmate.Controllers
         /// Creates new instance of <see cref="CharacterController"/>.
         /// </summary>
         /// <param name="interval">Timer interval in ms.</param>
-        public CharacterController(int interval = 10) : base(interval)
+        public CharacterController(int interval = 100) : base(interval)
         {
         }
         #endregion

@@ -1,5 +1,6 @@
 ﻿using Screenmate.MVVM;
 using Screenmate.Services;
+using System.Diagnostics;
 
 namespace Screenmate.Controllers
 {
@@ -8,6 +9,17 @@ namespace Screenmate.Controllers
     /// </summary>
     public class MonitoringAndWarningController : ControllerBase
     {
+        #region Private fields
+        /// <summary>
+        /// CPU usage percent
+        /// </summary>
+        private double _CPUUsage;
+        /// <summary>
+        /// Memory usage percent
+        /// </summary>
+        private double _memoryUsage;
+        #endregion
+
         #region Constructors
         /// <summary>
         /// Creates new instance of <see cref="MonitoringAndWarningController"/>.
@@ -29,12 +41,40 @@ namespace Screenmate.Controllers
             {
                 if (settings.MonitoringEnabled)
                 {
-
+                    UpdateUsageStatistics();
+                    if(settings.ShowCPUUsage)
+                    {
+                        //AnimationService.ShowCPUUsage(_CPUUsage);
+                    }
+                    if(settings.ShowMemoryUsage)
+                    {
+                        //AnimationService.ShowMemoryUsage(_memoryUsage);
+                    }
                 }
-                if (settings.WanderingEnabled)
+                if (settings.WarningEnabled)
                 {
-
+                    if(_CPUUsage > settings.CPUWarningThreshold)
+                    {
+                        //Warn
+                    }
+                    if(_memoryUsage > settings.MemoryWarningThreshold)
+                    {
+                        //Warn
+                    }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Gets current usage statistics.
+        /// </summary>
+        private void UpdateUsageStatistics()
+        {
+            Process[] processes = Process.GetProcesses();
+            double CPUUsage = 0.0, memoryUsage = 0.0;
+            foreach(Process process in processes)
+            {
+                
             }
         }
         #endregion

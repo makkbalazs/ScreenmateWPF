@@ -9,7 +9,7 @@
         MinWidth="300">
 
     <Window.Resources>
-        <Style TargetType="TextBlock">
+        <Style x:Key="SectionHeader" TargetType="TextBlock">
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Margin" Value="10"/>
         </Style>
@@ -33,20 +33,36 @@
         <ScrollViewer Grid.Row="0">
             <StackPanel Orientation="Vertical"
                         DataContext="{Binding Settings, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                <TextBlock Text="Enable or disable screenmate"/>
+                <TextBlock Text="Enable or disable screenmate" Style="{StaticResource SectionHeader}"/>
                 <CheckBox Content="Enable" IsChecked="{Binding Enabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Wandering"/>
+                <TextBlock Text="Wandering &amp; Following" Style="{StaticResource SectionHeader}"/>
+                <StackPanel Orientation="Horizontal">
+                    
+                </StackPanel>
                 <CheckBox Content="Enable wandering" IsChecked="{Binding WanderingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Following"/>
                 <CheckBox Content="Enable following" IsChecked="{Binding FollowingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Entertainment"/>
+                <TextBlock Text="Entertainment" Style="{StaticResource SectionHeader}"/>
+                <StackPanel Orientation="Horizontal">
+
+                </StackPanel>
                 <CheckBox Content="Enable entertainment" IsChecked="{Binding EntertainingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <CheckBox Content="Enable window moving" IsChecked="{Binding WindowMovingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <CheckBox Content="Enable window closing" IsChecked="{Binding WindowClosingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <CheckBox Content="Enable bombing" IsChecked="{Binding BombingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Monitoring &amp; Warning"/>
+                <TextBlock Text="Monitoring &amp; Warning" Style="{StaticResource SectionHeader}"/>
+                <StackPanel Orientation="Horizontal">
+
+                </StackPanel>
                 <CheckBox Content="Enable monitoring" IsChecked="{Binding MonitoringEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <CheckBox Content="Show CPU usage" IsChecked="{Binding ShowCPUUsage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <CheckBox Content="Show memory usage" IsChecked="{Binding ShowMemoryUsage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <CheckBox Content="Enable warning" IsChecked="{Binding WarningEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <StackPanel Orientation="Horizontal">
+                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
 

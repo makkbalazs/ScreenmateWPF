@@ -46,7 +46,24 @@ namespace Screenmate.Models
         }
         #endregion
 
-        #region Wandering
+        #region Wandering & Following
+        /// <summary>
+        /// The update interval of the wandering and following features in ms
+        /// </summary>
+        private int _wanderingAndFollowingInterval;
+
+        /// <summary>
+        /// Gets or sets the update interval of the wandering and following features in ms.
+        /// </summary>
+        /// <value>
+        /// The update interval of the wandering and following features in ms
+        /// </value>
+        public int WanderingAndFollowingInterval
+        {
+            get { return _wanderingAndFollowingInterval; }
+            set { SetField(ref _wanderingAndFollowingInterval, value); }
+        }
+
         /// <summary>
         /// Enables wandering
         /// </summary>
@@ -80,9 +97,7 @@ namespace Screenmate.Models
             get { return _wanderingSpeed; }
             set { SetField(ref _wanderingSpeed, value); }
         }
-        #endregion
 
-        #region Following
         /// <summary>
         /// enables cursor following
         /// </summary>
@@ -119,6 +134,23 @@ namespace Screenmate.Models
         #endregion
 
         #region Entertaining
+        /// <summary>
+        /// The update interval of the entertainment features in ms
+        /// </summary>
+        private int _entertainmentInterval;
+
+        /// <summary>
+        /// Gets or sets the update interval of the entertainment features in ms.
+        /// </summary>
+        /// <value>
+        /// The update interval of the entertainment features in ms
+        /// </value>
+        public int EntertainmentInterval
+        {
+            get { return _entertainmentInterval; }
+            set { SetField(ref _entertainmentInterval, value); }
+        }
+
         /// <summary>
         /// Enables entertaining
         /// </summary>
@@ -225,6 +257,23 @@ namespace Screenmate.Models
 
         #region Monitoring & Warning
         /// <summary>
+        /// The update interval of the monitoring and warning features in ms
+        /// </summary>
+        private int _monitoringAndWarningInterval;
+
+        /// <summary>
+        /// Gets the update interval of the monitoring and warning features in ms.
+        /// </summary>
+        /// <value>
+        /// The update interval of the monitoring and warning features in ms
+        /// </value>
+        public int MonitoringAndWarningInterval
+        {
+            get { return _monitoringAndWarningInterval; }
+            set { SetField(ref _monitoringAndWarningInterval, value); }
+        }
+
+        /// <summary>
         /// Enables monitoring
         /// </summary>
         private bool _monitoringEnabled;
@@ -242,6 +291,40 @@ namespace Screenmate.Models
         }
 
         /// <summary>
+        /// Show CPU usage
+        /// </summary>
+        private bool _showCPUUsage;
+
+        /// <summary>
+        /// Gets or sets whether to show CPU usage.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if CPU usage should be shown; otherwise <c>false</c>
+        /// </value>
+        public bool ShowCPUUsage
+        {
+            get { return _showCPUUsage; }
+            set { SetField(ref _showCPUUsage, value); }
+        }
+
+        /// <summary>
+        /// Show memory usage
+        /// </summary>
+        private bool _showMemoryUsage;
+
+        /// <summary>
+        /// Gets or sets whether to show memory usage.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if memory usage should be shown; otherwise <c>false</c>
+        /// </value>
+        public bool ShowMemoryUsage
+        {
+            get { return _showMemoryUsage; }
+            set { SetField(ref _showMemoryUsage, value); }
+        }
+
+        /// <summary>
         /// Enables warning
         /// </summary>
         private bool _warningEnabled;
@@ -256,6 +339,40 @@ namespace Screenmate.Models
         {
             get { return _warningEnabled; }
             set { SetField(ref _warningEnabled, value); }
+        }
+
+        /// <summary>
+        /// The CPU usage percentage above which warning should be displayed
+        /// </summary>
+        private double _CPUWarningThreshold;
+
+        /// <summary>
+        /// Gets or sets the CPU usage percentage above which warning should be displayed.
+        /// </summary>
+        /// <value>
+        /// The CPU usage percentage above which warning should be displayed
+        /// </value>
+        public double CPUWarningThreshold
+        {
+            get { return _CPUWarningThreshold; }
+            set { SetField(ref _CPUWarningThreshold, value); }
+        }
+
+        /// <summary>
+        /// The memory usage percentage above which warning should be displayed
+        /// </summary>
+        private double _memoryWarningThreshold;
+
+        /// <summary>
+        /// Gets or sets the memory usage percentage above which warning should be displayed.
+        /// </summary>
+        /// <value>
+        /// The memory usage percentage above which warning should be displayed
+        /// </value>
+        public double MemoryWarningThreshold
+        {
+            get { return _memoryWarningThreshold; }
+            set { SetField(ref _memoryWarningThreshold, value); }
         }
         #endregion
     }

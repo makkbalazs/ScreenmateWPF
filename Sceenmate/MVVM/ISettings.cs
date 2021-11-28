@@ -27,7 +27,15 @@ namespace Screenmate.MVVM
         bool Enabled { get; }
         #endregion
 
-        #region Wandering
+        #region Wandering &  Following
+        /// <summary>
+        /// Gets the update interval of the wandering and following features in ms.
+        /// </summary>
+        /// <value>
+        /// The update interval of the wandering and following features in ms
+        /// </value>
+        public int WanderingAndFollowingInterval { get; }
+
         /// <summary>
         /// Gets if wandering is enabled.
         /// </summary>
@@ -43,9 +51,7 @@ namespace Screenmate.MVVM
         /// The speed of wandering in pixels per s
         /// </value>
         double WanderingSpeed { get; }
-        #endregion
 
-        #region Following
         /// <summary>
         /// Gets if cursor following is enabled.
         /// </summary>
@@ -64,6 +70,14 @@ namespace Screenmate.MVVM
         #endregion
 
         #region Entertaining
+        /// <summary>
+        /// Gets the update interval of the entertainment features in ms.
+        /// </summary>
+        /// <value>
+        /// The update interval of the entertainment features in ms
+        /// </value>
+        public int EntertainmentInterval { get; }
+
         /// <summary>
         /// Gets if entertaining is enabled.
         /// </summary>
@@ -115,6 +129,14 @@ namespace Screenmate.MVVM
 
         #region Monitoring & Warning
         /// <summary>
+        /// Gets the update interval of the monitoring and warning features in ms.
+        /// </summary>
+        /// <value>
+        /// The update interval of the monitoring and warning features in ms
+        /// </value>
+        public int MonitoringAndWarningInterval { get; }
+
+        /// <summary>
         /// Gets if monitoring is enabled.
         /// </summary>
         /// <value>
@@ -123,12 +145,44 @@ namespace Screenmate.MVVM
         bool MonitoringEnabled { get; }
 
         /// <summary>
+        /// Gets whether to show CPU usage.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if CPU usage should be shown; otherwise <c>false</c>
+        /// </value>
+        bool ShowCPUUsage { get; }
+
+        /// <summary>
+        /// Gets whether to show memory usage.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if memory usage should be shown; otherwise <c>false</c>
+        /// </value>
+        bool ShowMemoryUsage { get; }
+
+        /// <summary>
         /// Gets if warning is enabled
         /// </summary>
         /// <value>
         /// <c>true</c> if warning is enabled; otherwise <c>false</c>
         /// </value>
         bool WarningEnabled { get; }
+
+        /// <summary>
+        /// Gets the CPU usage percentage above which warning should be displayed.
+        /// </summary>
+        /// <value>
+        /// The CPU usage percentage above which warning should be displayed
+        /// </value>
+        double CPUWarningThreshold { get; }
+
+        /// <summary>
+        /// Gets the memory usage percentage above which warning should be displayed.
+        /// </summary>
+        /// <value>
+        /// The memory usage percentage above which warning should be displayed
+        /// </value>
+        double MemoryWarningThreshold { get; }
         #endregion
     }
 }

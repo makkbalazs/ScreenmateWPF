@@ -117,16 +117,61 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="EnableBombing" xml:space="preserve">
+    <value>Enable bombing</value>
+  </data>
+  <data name="EnableEntertainment" xml:space="preserve">
+    <value>Enable entertainment</value>
+  </data>
+  <data name="EnableFollowing" xml:space="preserve">
+    <value>Enable following</value>
+  </data>
+  <data name="EnableMonitoring" xml:space="preserve">
+    <value>Enable monitoring</value>
+  </data>
+  <data name="EnableOrDisableScreenmateHeader" xml:space="preserve">
+    <value>Enable or disable screenmate</value>
+  </data>
   <data name="EnableScreenmate" xml:space="preserve">
     <value>Enable screenmate</value>
   </data>
+  <data name="EnableWandering" xml:space="preserve">
+    <value>Enable wandering</value>
+  </data>
+  <data name="EnableWarning" xml:space="preserve">
+    <value>Enable warning</value>
+  </data>
+  <data name="EnableWindowClosing" xml:space="preserve">
+    <value>Enable window closing</value>
+  </data>
+  <data name="EnableWindowMoving" xml:space="preserve">
+    <value>Enable window moving</value>
+  </data>
+  <data name="EntertainmentHeader" xml:space="preserve">
+    <value>Entertainment</value>
+  </data>
   <data name="LoadSettingsButtonText" xml:space="preserve">
     <value>Load settings</value>
+  </data>
+  <data name="MonitoringAndWarningHeader" xml:space="preserve">
+    <value>Monitoring &amp;amp; warning</value>
   </data>
   <data name="ResetDefaultsButtonText" xml:space="preserve">
     <value>Reset defaults</value>
   </data>
   <data name="SaveSettingsButtonText" xml:space="preserve">
     <value>Save settings</value>
+  </data>
+  <data name="ShowCPUUsage" xml:space="preserve">
+    <value>Show CPU usage</value>
+  </data>
+  <data name="ShowMemoryUsage" xml:space="preserve">
+    <value>Show memory usage</value>
+  </data>
+  <data name="WanderingAndFollowingHeader" xml:space="preserve">
+    <value>Wandering &amp;amp; following</value>
   </data>
 </root>

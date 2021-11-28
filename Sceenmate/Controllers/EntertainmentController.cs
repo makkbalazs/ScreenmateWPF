@@ -38,7 +38,7 @@ namespace Screenmate.Controllers
         /// Creates new instance of <see cref="EntertainmentController"/>.
         /// </summary>
         /// <param name="interval">Timer interval in ms.</param>
-        public EntertainmentController(int interval = 60) : base(interval)
+        public EntertainmentController(int interval = 600000) : base(interval)
         {
             _random = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
         }

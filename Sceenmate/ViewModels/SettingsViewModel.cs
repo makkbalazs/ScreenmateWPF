@@ -118,30 +118,34 @@ namespace Screenmate.ViewModels
                 //General
                 Enabled = false,
                 //Wandering
+                WanderingAndFollowingInterval = 100,
                 WanderingEnabled = true,
                 WanderingSpeed = 10,
                 //Following
                 FollowingEnabled = false,
                 FollowingSpeed = 10,
                 //Entertainment
+                EntertainmentInterval = 600000,
                 EntertainingEnabled = false,
                 WindowMovingEnabled = true,
                 ProcessesCanBeMoved = new List<string>()
                 {
-                    "notepad",
-                    "explorer",
-                    "chrome"
+                    "notepad"
                 },
                 WindowClosingEnabled = false,
                 ProcessesCanBeClosed = new List<string>()
                 {
-                    "notepad",
-                    "explorer"
+                    "notepad"
                 },
                 BombingEnabled = true,
                 //Monitoring & Warning
+                MonitoringAndWarningInterval = 2000,
                 MonitoringEnabled = false,
-                WarningEnabled = false
+                ShowCPUUsage = true,
+                ShowMemoryUsage = true,
+                WarningEnabled = false,
+                CPUWarningThreshold = 99.0,
+                MemoryWarningThreshold = 80.0
             };
             Settings = settings;
         }
