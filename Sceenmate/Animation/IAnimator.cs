@@ -8,5 +8,7 @@
         void ShowTransparentWindow();
 
         void ShowImage(int posx, int posy);
+
+        void moveRon(double x, double y);
     }
 }

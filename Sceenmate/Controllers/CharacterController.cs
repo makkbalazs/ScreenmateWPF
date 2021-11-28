@@ -1,4 +1,6 @@
-﻿using Screenmate.MVVM;
+﻿using System;
+using System.Windows;
+using Screenmate.MVVM;
 using Screenmate.Services;
 using Screenmate.Win32Interop;
 
@@ -13,11 +15,11 @@ namespace Screenmate.Controllers
         /// <summary>
         /// The previous position of the cursor
         /// </summary>
-        private Point _previousCursorPos;
+        private Win32Interop.Point _previousCursorPos;
         /// <summary>
         /// The current position of the cursor
         /// </summary>
-        private Point _currentCursorPos;
+        private Win32Interop.Point _currentCursorPos;
         #endregion
 
         #region Constructors
@@ -56,7 +58,7 @@ namespace Screenmate.Controllers
         /// </summary>
         private void UpdateCursorPos()
         {
-            Point cursorPos = new Point();
+            Win32Interop.Point cursorPos = new Win32Interop.Point();
             if (Win32Methods.GetCursorPos(out cursorPos))
             {
                 System.Console.WriteLine(cursorPos.X.ToString() + "; " + cursorPos.Y.ToString() + '\n');
@@ -80,7 +82,17 @@ namespace Screenmate.Controllers
         /// </summary>
         private void FollowCursor()
         {
-            
+            if (_previousCursorPos.X != _currentCursorPos.X && _previousCursorPos.Y != _currentCursorPos.Y)
+            {
+                if (Math.Abs(_currentCursorPos.X) > 60 || Math.Abs(_currentCursorPos.Y) > 80)
+                {
+                    Vector n = new Vector (_currentCursorPos.X, _currentCursorPos.Y);
+                    n.Normalize();
+                    AnimationService.Instance.moveRon(n.X, n.Y);
+                }
+                else AnimationService.Instance.moveRon(0, 0);
+            }
+            else AnimationService.Instance.moveRon(0, 0);
         }
         #endregion
     }
