@@ -40,6 +40,7 @@ namespace Screenmate.Controllers
         /// <param name="interval">Timer interval in ms.</param>
         public EntertainmentController(int interval = 600000) : base(interval)
         {
+            SettingsService.InstanceChanged += SettingsService_InstanceChanged;
             _random = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
         }
         #endregion
@@ -51,7 +52,6 @@ namespace Screenmate.Controllers
         protected override async void Update()
         {
             ISettings settings = SettingsService.Instance;
-            Interval = settings.EntertainmentInterval;
             if (settings.Enabled && settings.EntertainingEnabled)
             {
                 _processes = new List<Process>(Process.GetProcesses().Where(p => p.MainWindowHandle != IntPtr.Zero));
@@ -59,15 +59,36 @@ namespace Screenmate.Controllers
                 {
                     MoveWindow();
                 }
-                if(settings.WindowClosingEnabled)
+                if(settings.WindowClosingEnabled && _random.Next() % 7 == 0)
                 {
                     CloseWindow();
                 }
-                if(settings.BombingEnabled)
+                if(settings.BombingEnabled && _random.Next() % 11 == 0)
                 {
                     Bomb();
                 }
             }
+        }
+
+        /// <summary>
+        /// Handles instance changed event of the settings service.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SettingsService_InstanceChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            SettingsService.Instance.PropertyChanged += UpdateTimerInterval;
+            UpdateTimerInterval(sender, e);
+        }
+
+        /// <summary>
+        /// Updates timer interval.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateTimerInterval(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            Interval = SettingsService.Instance.EntertainmentInterval;
         }
 
         /// <summary>

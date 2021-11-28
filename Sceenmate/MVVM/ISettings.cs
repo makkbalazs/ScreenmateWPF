@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Screenmate.MVVM
 {
     /// <summary>
     /// Interface to access settings.
     /// </summary>
-    public interface ISettings
+    public interface ISettings : INotifyPropertyChanged
     {
         #region Technical
         /// <summary>

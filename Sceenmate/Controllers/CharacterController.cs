@@ -12,7 +12,7 @@ namespace Screenmate.Controllers
     /// </summary>
     public class CharacterController : ControllerBase
     {
-        #region
+        #region Private fields
         /// <summary>
         /// The previous position of the cursor
         /// </summary>
@@ -33,6 +33,7 @@ namespace Screenmate.Controllers
         /// <param name="interval">Timer interval in ms.</param>
         public CharacterController(int interval = 10) : base(interval)
         {
+            SettingsService.InstanceChanged += SettingsService_InstanceChanged;
             afk = 0;
         }
         #endregion
@@ -44,7 +45,6 @@ namespace Screenmate.Controllers
         protected override async void Update()
         {
             ISettings settings = SettingsService.Instance;
-            Interval = settings.WanderingAndFollowingInterval;
             if (settings.Enabled)
             {
                 UpdateCursorPos();
@@ -57,6 +57,27 @@ namespace Screenmate.Controllers
                     FollowCursor();
                 }
             }
+        }
+
+        /// <summary>
+        /// Handles instance changed event of the settings service.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SettingsService_InstanceChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            SettingsService.Instance.PropertyChanged += UpdateTimerInterval;
+            UpdateTimerInterval(sender, e);
+        }
+
+        /// <summary>
+        /// Updates timer interval.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateTimerInterval(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            Interval = SettingsService.Instance.WanderingAndFollowingInterval;
         }
 
         /// <summary>
@@ -80,9 +101,6 @@ namespace Screenmate.Controllers
         /// </summary>
         private void Wander()
         {
-            //Nem szeretek kódba írni, de ide kell valami logika, hogy ha a following is be van kapcsolva, akkor
-            //mi legyen. Ha kicsit mozdult a kurzor/nem mozdult, akkor vándoroljon? Vagy legyen a settingsben kizáró
-            //a wander és a follow?
             if (afk == 1000)
             {
                 Random rnd = new Random();

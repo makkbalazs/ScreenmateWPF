@@ -27,6 +27,7 @@ namespace Screenmate.Controllers
         /// <param name="interval">Timer interval in ms.</param>
         public MonitoringAndWarningController(int interval = 2000) : base(interval)
         {
+            SettingsService.InstanceChanged += SettingsService_InstanceChanged;
         }
         #endregion
 
@@ -37,7 +38,6 @@ namespace Screenmate.Controllers
         protected override async void Update()
         {
             ISettings settings = SettingsService.Instance;
-            Interval = settings.MonitoringAndWarningInterval;
             if (settings.Enabled)
             {
                 if (settings.MonitoringEnabled)
@@ -64,6 +64,27 @@ namespace Screenmate.Controllers
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Handles instance changed event of the settings service.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SettingsService_InstanceChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            SettingsService.Instance.PropertyChanged += UpdateTimerInterval;
+            UpdateTimerInterval(sender, e);
+        }
+
+        /// <summary>
+        /// Updates timer interval.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateTimerInterval(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            Interval = SettingsService.Instance.MonitoringAndWarningInterval;
         }
 
         /// <summary>

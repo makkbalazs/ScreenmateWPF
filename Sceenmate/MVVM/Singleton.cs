@@ -1,4 +1,6 @@
-﻿namespace Screenmate.MVVM
+﻿using System.ComponentModel;
+
+namespace Screenmate.MVVM
 {
     /// <summary>
     /// Singleton class base.
@@ -7,6 +9,10 @@
     /// <typeparam name="TClass">Class type of instance</typeparam>
     public class Singleton<TInterface, TClass> where TClass : TInterface, new()
     {
+        /// <summary>
+        /// The property changed event handler.
+        /// </summary>
+        public static event PropertyChangedEventHandler InstanceChanged;
         /// <summary>
         /// The instance
         /// </summary>
@@ -30,6 +36,7 @@
             set
             {
                 _instance = value;
+                InstanceChanged.Invoke(null, new PropertyChangedEventArgs(nameof(Instance)));
             }
         }
     }
