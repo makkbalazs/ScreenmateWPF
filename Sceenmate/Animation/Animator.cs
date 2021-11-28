@@ -1,4 +1,8 @@
-﻿using Screenmate.Views;
+﻿using System.Drawing;
+using System.Windows;
+using System.Windows.Interop;
+using System.Windows.Media;
+using Screenmate.Views;
 
 namespace Screenmate.Animation
 {
@@ -32,6 +36,21 @@ namespace Screenmate.Animation
         public void moveRon(double x, double y)
         {
             _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.moveRon(x, y));
+        }
+
+        public double getRonLeft()
+        {
+            return _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.getRonLeft());
+        }
+
+        public double getRonTop()
+        {
+            return _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.getRonTop());
+        }
+
+        public Vector convertCoords(Vector v)
+        {
+            return _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.convertCoords(v));
         }
         #endregion
     }

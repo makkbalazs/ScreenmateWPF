@@ -118,7 +118,7 @@ namespace Screenmate.ViewModels
                 //General
                 Enabled = false,
                 //Wandering
-                WanderingAndFollowingInterval = 100,
+                WanderingAndFollowingInterval = 10,
                 WanderingEnabled = true,
                 WanderingSpeed = 10,
                 //Following

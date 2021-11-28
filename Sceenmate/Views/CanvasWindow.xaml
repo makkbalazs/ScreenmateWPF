@@ -6,15 +6,15 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:Screenmate.Views"
         mc:Ignorable="d"
-        Title="CanvasWindow" Height="450" Width="800"
+        Title="CanvasWindow" Height="1080" Width="1920"
         AllowsTransparency="True"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
-        Topmost="True" Background="{x:Null}" Foreground="{x:Null}">
+        Topmost="True" Background="{x:Null}" Foreground="{x:Null}" Left="0" Top="0">
 
-    <Canvas Name="MyCanvas" Focusable="True">
+    <Canvas Name="MyCanvas">
         <Image x:Name="Ron" Height="160" Margin="0,0,0,0" Width="120" gif:ImageBehavior.AnimatedSource="/Images/RonDown2.png" Tag="0" Canvas.Left="351" Canvas.Top="170"/>
     </Canvas>
 </Window>
