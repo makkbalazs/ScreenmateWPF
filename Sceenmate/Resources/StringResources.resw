@@ -171,6 +171,9 @@
   <data name="ShowMemoryUsage" xml:space="preserve">
     <value>Show memory usage</value>
   </data>
+  <data name="TimerUpdateIntervalMs" xml:space="preserve">
+    <value>Timer update interval [ms]</value>
+  </data>
   <data name="WanderingAndFollowingHeader" xml:space="preserve">
     <value>Wandering &amp;amp; following</value>
   </data>

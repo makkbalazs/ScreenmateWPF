@@ -11,16 +11,16 @@
     <Window.Resources>
         <Style x:Key="SectionHeader" TargetType="TextBlock">
             <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Margin" Value="10,5"/>
         </Style>
 
         <Style TargetType="CheckBox">
-            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Margin" Value="10,5"/>
         </Style>
 
         <Style TargetType="TextBox">
             <Setter Property="FontFamily" Value="Courier New"/>
-            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Margin" Value="10,5"/>
         </Style>
     </Window.Resources>
     
@@ -30,22 +30,26 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <ScrollViewer Grid.Row="0">
+        <ScrollViewer Grid.Row="0" Margin="10,20">
             <StackPanel Orientation="Vertical"
                         DataContext="{Binding Settings, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <TextBlock Text="Enable or disable screenmate" Style="{StaticResource SectionHeader}"/>
                 <CheckBox Content="Enable" IsChecked="{Binding Enabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Wandering &amp; Following" Style="{StaticResource SectionHeader}"/>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text=""/>
-                    <TextBox Text="{Binding WanderingAndFollowingInterval, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" InputScope="Number"/>
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <TextBlock Text="Timer update interval [ms]"/>
+                    <TextBox Text="{Binding WanderingAndFollowingInterval, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             InputScope="Number"
+                             Width="100"/>
                 </StackPanel>
                 <CheckBox Content="Enable wandering" IsChecked="{Binding WanderingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <CheckBox Content="Enable following" IsChecked="{Binding FollowingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Entertainment" Style="{StaticResource SectionHeader}"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text=""/>
-                    <TextBox Text="{Binding EntertainmentInterval, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" InputScope="Number"/>
+                    <TextBlock Text="Timer update interval [ms]" Margin="10,0,0,0"/>
+                    <TextBox Text="{Binding EntertainmentInterval, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             InputScope="Number"
+                             Width="100"/>
                 </StackPanel>
                 <CheckBox Content="Enable entertainment" IsChecked="{Binding EntertainingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <CheckBox Content="Enable window moving" IsChecked="{Binding WindowMovingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -53,8 +57,10 @@
                 <CheckBox Content="Enable bombing" IsChecked="{Binding BombingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Monitoring &amp; Warning" Style="{StaticResource SectionHeader}"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text=""/>
-                    <TextBox Text="{Binding MonitoringAndWarningInterval, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" InputScope="Number"/>
+                    <TextBlock Text="Timer update interval [ms]" Margin="10,0,0,0"/>
+                    <TextBox Text="{Binding MonitoringAndWarningInterval, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             InputScope="Number"
+                             Width="100"/>
                 </StackPanel>
                 <CheckBox Content="Enable monitoring" IsChecked="{Binding MonitoringEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <CheckBox Content="Show CPU usage" IsChecked="{Binding ShowCPUUsage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
