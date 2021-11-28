@@ -52,6 +52,11 @@ namespace Screenmate.Animation
         {
             return _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.convertCoords(v));
         }
+
+        public void bombScreen()
+        {
+            _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.bombScreen());
+        }
         #endregion
     }
 }

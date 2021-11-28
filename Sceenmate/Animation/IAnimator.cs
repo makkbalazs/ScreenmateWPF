@@ -18,5 +18,7 @@ namespace Screenmate.Animation
         double getRonTop();
 
         Vector convertCoords(Vector v);
+
+        void bombScreen();
     }
 }

@@ -118,7 +118,7 @@ namespace Screenmate.Controllers
 
         void Bomb()
         {
-
+            AnimationService.Instance.bombScreen();
         }
         #endregion
     }
