@@ -9,7 +9,7 @@ namespace Screenmate.Animation
     public class Animator : IAnimator
     {
         #region Private fields
-        Window _canvasWindow;
+        CanvasWindow _canvasWindow;
         #endregion
 
         #region Constructors
@@ -28,6 +28,11 @@ namespace Screenmate.Animation
         public void ShowImage(int posx, int posy)
         {
 
+        }
+
+        public void moveRon(double x, double y)
+        {
+            _canvasWindow.moveRon(x, y);
         }
         #endregion
     }
