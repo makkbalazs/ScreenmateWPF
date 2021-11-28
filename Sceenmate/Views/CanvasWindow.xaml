@@ -13,8 +13,41 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         Topmost="True" Background="{x:Null}" Foreground="{x:Null}" Left="0" Top="0">
+    <Window.Resources>
+        <Storyboard x:Key="Bombing">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Draco" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.1000000" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:02.1000000" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Draco" Storyboard.TargetProperty="(Canvas.Left)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="2000"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-200"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Bomb" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:01.1000000" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:02.1000000" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Bomb" Storyboard.TargetProperty="(Canvas.Top)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01.1000000" Value="180"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="760"/>
+            </DoubleAnimationUsingKeyFrames>
+            <BooleanAnimationUsingKeyFrames Storyboard.TargetName="Nuke" Storyboard.TargetProperty="(gif:ImageBehavior.AutoStart)">
+                <DiscreteBooleanKeyFrame KeyTime="00:00:02" Value="True"/>
+                <DiscreteBooleanKeyFrame KeyTime="00:00:03" Value="False"/>
+            </BooleanAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Nuke" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:03" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
 
     <Canvas Name="MyCanvas">
         <Image x:Name="Ron" Height="160" Margin="0,0,0,0" Width="120" gif:ImageBehavior.AnimatedSource="/Images/RonDown2.png" Tag="0" Canvas.Left="351" Canvas.Top="170"/>
+        <Image x:Name="Bomb" Height="160" Canvas.Left="900" Canvas.Top="180" Width="120" Source="/Images/Bomb.png" Visibility="Hidden"/>
+        <Image x:Name="Draco" Height="160" Canvas.Left="2000" Canvas.Top="120" Width="120" gif:ImageBehavior.AnimatedSource="/Images/DracoFlyLeft.gif" Visibility="Hidden"/>
+        <Image x:Name="Nuke" Height="800" Canvas.Left="607" Canvas.Top="140" Width="706" Visibility="Hidden" gif:ImageBehavior.AnimatedSource="/Images/Nuke.gif"/>
     </Canvas>
 </Window>

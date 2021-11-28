@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using WpfAnimatedGif;
@@ -78,6 +79,12 @@ namespace Screenmate.Views
                 transformToDevice = source.CompositionTarget.TransformToDevice;
             var pixelSize = (System.Windows.Size)transformToDevice.Transform((Vector)v);
             return new Vector(pixelSize.Width, pixelSize.Height);
+        }
+
+        public void bombScreen()
+        {
+            Storyboard sb = FindResource("Bombing") as Storyboard;
+            sb.Begin();
         }
     }
 }

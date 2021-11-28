@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Bomb.png" />
+    <None Remove="Images\DracoFlyLeft.gif" />
+    <None Remove="Images\Nuke.gif" />
     <None Remove="Images\RonDown1.png" />
     <None Remove="Images\RonDown2.png" />
     <None Remove="Images\RonDown3.png" />
@@ -32,18 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\RonDown1.png" />
+    <Resource Include="Images\Bomb.png" />
+    <Resource Include="Images\DracoFlyLeft.gif" />
+    <Resource Include="Images\Nuke.gif" />
     <Resource Include="Images\RonDown2.png" />
-    <Resource Include="Images\RonDown3.png" />
-    <Resource Include="Images\RonLeft1.png" />
-    <Resource Include="Images\RonLeft2.png" />
-    <Resource Include="Images\RonLeft3.png" />
-    <Resource Include="Images\RonRight1.png" />
-    <Resource Include="Images\RonRight2.png" />
-    <Resource Include="Images\RonRight3.png" />
-    <Resource Include="Images\RonUp1.png" />
-    <Resource Include="Images\RonUp2.png" />
-    <Resource Include="Images\RonUp3.png" />
     <Resource Include="Images\RonWalkDown.gif" />
     <Resource Include="Images\RonWalkLeft.gif" />
     <Resource Include="Images\RonWalkRight.gif" />
