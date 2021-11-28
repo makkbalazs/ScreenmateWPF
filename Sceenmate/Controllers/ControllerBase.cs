@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Timers;
 
 namespace Screenmate.Controllers
@@ -15,11 +16,31 @@ namespace Screenmate.Controllers
         Timer _timer;
         #endregion
 
+        #region Public properties
+        /// <summary>
+        /// Gets or sets timer interval.
+        /// </summary>
+        /// <value>
+        /// The timer interval in ms
+        /// </value>
+        public double Interval
+        {
+            get { return _timer.Interval; }
+            set
+            {
+                if(value > 1.0 && Math.Abs(_timer.Interval - value) > 0.001)
+                {
+                    _timer.Interval = value;
+                }
+            }
+        }
+        #endregion
+
         #region Constructors
         /// <summary>
         /// Creates new instance of <see cref="ControllerBase"/>.
         /// </summary>
-        /// <param name="interval">Timer interval in ms.</param>
+        /// <param name="interval">Timer interval in ms</param>
         public ControllerBase(int interval = 10)
         {
             _timer = new Timer(interval);

@@ -37,6 +37,7 @@ namespace Screenmate.Controllers
         protected override async void Update()
         {
             ISettings settings = SettingsService.Instance;
+            Interval = settings.MonitoringAndWarningInterval;
             if (settings.Enabled)
             {
                 if (settings.MonitoringEnabled)

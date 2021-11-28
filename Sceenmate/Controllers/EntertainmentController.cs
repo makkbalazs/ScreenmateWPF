@@ -51,6 +51,7 @@ namespace Screenmate.Controllers
         protected override async void Update()
         {
             ISettings settings = SettingsService.Instance;
+            Interval = settings.EntertainmentInterval;
             if (settings.Enabled && settings.EntertainingEnabled)
             {
                 _processes = new List<Process>(Process.GetProcesses().Where(p => p.MainWindowHandle != IntPtr.Zero));

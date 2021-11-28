@@ -61,7 +61,13 @@ namespace Screenmate.Models
         public int WanderingAndFollowingInterval
         {
             get { return _wanderingAndFollowingInterval; }
-            set { SetField(ref _wanderingAndFollowingInterval, value); }
+            set
+            {
+                if (value > 0)
+                {
+                    SetField(ref _wanderingAndFollowingInterval, value);
+                }
+            }
         }
 
         /// <summary>
@@ -148,7 +154,13 @@ namespace Screenmate.Models
         public int EntertainmentInterval
         {
             get { return _entertainmentInterval; }
-            set { SetField(ref _entertainmentInterval, value); }
+            set
+            {
+                if (value > 0)
+                {
+                    SetField(ref _entertainmentInterval, value);
+                }
+            }
         }
 
         /// <summary>
@@ -270,7 +282,13 @@ namespace Screenmate.Models
         public int MonitoringAndWarningInterval
         {
             get { return _monitoringAndWarningInterval; }
-            set { SetField(ref _monitoringAndWarningInterval, value); }
+            set
+            {
+                if (value > 0)
+                {
+                    SetField(ref _monitoringAndWarningInterval, value);
+                }
+            }
         }
 
         /// <summary>

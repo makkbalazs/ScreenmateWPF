@@ -37,13 +37,15 @@
                 <CheckBox Content="Enable" IsChecked="{Binding Enabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Wandering &amp; Following" Style="{StaticResource SectionHeader}"/>
                 <StackPanel Orientation="Horizontal">
-                    
+                    <TextBlock Text=""/>
+                    <TextBox Text="{Binding WanderingAndFollowingInterval, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" InputScope="Number"/>
                 </StackPanel>
                 <CheckBox Content="Enable wandering" IsChecked="{Binding WanderingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <CheckBox Content="Enable following" IsChecked="{Binding FollowingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Entertainment" Style="{StaticResource SectionHeader}"/>
                 <StackPanel Orientation="Horizontal">
-
+                    <TextBlock Text=""/>
+                    <TextBox Text="{Binding EntertainmentInterval, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" InputScope="Number"/>
                 </StackPanel>
                 <CheckBox Content="Enable entertainment" IsChecked="{Binding EntertainingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <CheckBox Content="Enable window moving" IsChecked="{Binding WindowMovingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -51,7 +53,8 @@
                 <CheckBox Content="Enable bombing" IsChecked="{Binding BombingEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Monitoring &amp; Warning" Style="{StaticResource SectionHeader}"/>
                 <StackPanel Orientation="Horizontal">
-
+                    <TextBlock Text=""/>
+                    <TextBox Text="{Binding MonitoringAndWarningInterval, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" InputScope="Number"/>
                 </StackPanel>
                 <CheckBox Content="Enable monitoring" IsChecked="{Binding MonitoringEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <CheckBox Content="Show CPU usage" IsChecked="{Binding ShowCPUUsage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>

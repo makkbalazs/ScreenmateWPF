@@ -39,6 +39,7 @@ namespace Screenmate.Controllers
         protected override async void Update()
         {
             ISettings settings = SettingsService.Instance;
+            Interval = settings.WanderingAndFollowingInterval;
             if (settings.Enabled)
             {
                 UpdateCursorPos();
