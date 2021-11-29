@@ -140,7 +140,7 @@ namespace Screenmate.Controllers
         void CloseWindow()
         {
             Process process = SelectProcess(WindowHandlingType.Close);
-            process.CloseMainWindow();
+            process?.CloseMainWindow();
         }
 
         void Bomb()
