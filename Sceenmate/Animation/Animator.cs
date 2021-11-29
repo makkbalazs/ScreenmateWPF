@@ -54,6 +54,21 @@ namespace Screenmate.Animation
         {
             _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.bombScreen());
         }
+
+        public void showMessage(string message)
+        {
+            _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.showMessage(message));
+        }
+
+        public void showData(string data)
+        {
+            _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.showData(data));
+        }
+
+        public void hideData()
+        {
+            _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.hideData());
+        }
         #endregion
     }
 }

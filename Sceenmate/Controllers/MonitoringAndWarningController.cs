@@ -45,24 +45,30 @@ namespace Screenmate.Controllers
                 if (settings.MonitoringEnabled)
                 {
                     UpdateUsageStatistics();
-                    if(settings.ShowCPUUsage)
+                    if (settings.ShowCPUUsage && settings.ShowMemoryUsage)
                     {
-                        //AnimationService.ShowCPUUsage(_CPUUsage);
+                        AnimationService.Instance.showData("CPU usage: " + _CPUUsage + "%\nMemory usage: " + _memoryUsage + "%");
                     }
-                    if(settings.ShowMemoryUsage)
+                    else if (settings.ShowCPUUsage)
                     {
-                        //AnimationService.ShowMemoryUsage(_memoryUsage);
+                        AnimationService.Instance.showData("CPU usage: " + _CPUUsage + "%");
                     }
+                    else if (settings.ShowMemoryUsage)
+                    {
+                        AnimationService.Instance.showData("Memory usage: " + _memoryUsage + "%");
+                    }
+                    else AnimationService.Instance.hideData();
                 }
+                else AnimationService.Instance.hideData();
                 if (settings.WarningEnabled)
                 {
                     if(_CPUUsage > settings.CPUWarningThreshold)
                     {
-                        //Warn
+                        AnimationService.Instance.showMessage("CPU usage is at extreme levels!");
                     }
                     if(_memoryUsage > settings.MemoryWarningThreshold)
                     {
-                        //Warn
+                        AnimationService.Instance.showMessage("Memory usage is at extreme levels!");
                     }
                 }
             }

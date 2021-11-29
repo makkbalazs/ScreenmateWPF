@@ -20,5 +20,11 @@ namespace Screenmate.Animation
         Vector convertCoords(Vector v);
 
         void bombScreen();
+
+        void showMessage(string message);
+
+        void showData(string data);
+
+        void hideData();
     }
 }
