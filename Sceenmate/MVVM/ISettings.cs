@@ -175,7 +175,7 @@ namespace Screenmate.MVVM
         /// <value>
         /// The CPU usage percentage above which warning should be displayed
         /// </value>
-        double CPUWarningThreshold { get; }
+        uint CPUWarningThreshold { get; }
 
         /// <summary>
         /// Gets the memory usage percentage above which warning should be displayed.
@@ -183,7 +183,7 @@ namespace Screenmate.MVVM
         /// <value>
         /// The memory usage percentage above which warning should be displayed
         /// </value>
-        double MemoryWarningThreshold { get; }
+        uint MemoryWarningThreshold { get; }
         #endregion
     }
 }

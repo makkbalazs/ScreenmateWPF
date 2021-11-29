@@ -1,5 +1,7 @@
 ﻿using Screenmate.MVVM;
 using Screenmate.Services;
+using Screenmate.Win32Interop;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Management;
@@ -15,11 +17,11 @@ namespace Screenmate.Controllers
         /// <summary>
         /// CPU usage percent
         /// </summary>
-        private double _CPUUsage;
+        private uint _CPUUsage;
         /// <summary>
         /// Memory usage percent
         /// </summary>
-        private double _memoryUsage;
+        private uint _memoryUsage;
         #endregion
 
         #region Constructors
@@ -101,7 +103,7 @@ namespace Screenmate.Controllers
         private void UpdateUsageStatistics()
         {
             double CPUUsage = 0.0, memoryUsage = 0.0;
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("select * from Win32_PerfFormattedData_PerfOS_Processor");
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PerfFormattedData_PerfOS_Processor");
             var cpuTimes = searcher.Get()
                 .Cast<ManagementObject>()
                 .Select(mo => new
@@ -111,8 +113,12 @@ namespace Screenmate.Controllers
                 }
                 )
                 .ToArray();
-            var c = cpuTimes[cpuTimes.Length - 1].Usage;
-            //CPUUsage = (int)(cpuTimes.LastOrDefault()?.Usage ?? 0);
+
+            MEMORYSTATUSEX memStatus = new MEMORYSTATUSEX();
+            if (Win32Methods.GlobalMemoryStatusEx(memStatus))
+            {
+                _memoryUsage = memStatus.dwMemoryLoad;
+            }
         }
         #endregion
     }

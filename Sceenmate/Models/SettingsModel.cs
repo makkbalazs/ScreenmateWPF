@@ -362,7 +362,7 @@ namespace Screenmate.Models
         /// <summary>
         /// The CPU usage percentage above which warning should be displayed
         /// </summary>
-        private double _CPUWarningThreshold;
+        private uint _CPUWarningThreshold;
 
         /// <summary>
         /// Gets or sets the CPU usage percentage above which warning should be displayed.
@@ -370,7 +370,7 @@ namespace Screenmate.Models
         /// <value>
         /// The CPU usage percentage above which warning should be displayed
         /// </value>
-        public double CPUWarningThreshold
+        public uint CPUWarningThreshold
         {
             get { return _CPUWarningThreshold; }
             set { SetField(ref _CPUWarningThreshold, value); }
@@ -379,7 +379,7 @@ namespace Screenmate.Models
         /// <summary>
         /// The memory usage percentage above which warning should be displayed
         /// </summary>
-        private double _memoryWarningThreshold;
+        private uint _memoryWarningThreshold;
 
         /// <summary>
         /// Gets or sets the memory usage percentage above which warning should be displayed.
@@ -387,7 +387,7 @@ namespace Screenmate.Models
         /// <value>
         /// The memory usage percentage above which warning should be displayed
         /// </value>
-        public double MemoryWarningThreshold
+        public uint MemoryWarningThreshold
         {
             get { return _memoryWarningThreshold; }
             set { SetField(ref _memoryWarningThreshold, value); }

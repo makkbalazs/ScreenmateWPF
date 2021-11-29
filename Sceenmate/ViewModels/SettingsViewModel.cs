@@ -144,8 +144,8 @@ namespace Screenmate.ViewModels
                 ShowCPUUsage = true,
                 ShowMemoryUsage = true,
                 WarningEnabled = false,
-                CPUWarningThreshold = 99.0,
-                MemoryWarningThreshold = 80.0
+                CPUWarningThreshold = 99,
+                MemoryWarningThreshold = 80
             };
             Settings = settings;
         }

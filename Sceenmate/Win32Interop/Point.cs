@@ -2,6 +2,8 @@
 
 namespace Screenmate.Win32Interop
 {
+    //Source pinvoke.net
+
     /// <summary>
     /// Point struct for Win32 interop
     /// </summary>
