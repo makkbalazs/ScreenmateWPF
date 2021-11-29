@@ -9,8 +9,6 @@ namespace Screenmate.Animation
     {
         void ShowTransparentWindow();
 
-        void ShowImage(int posx, int posy);
-
         void moveRon(double x, double y);
 
         double getRonLeft();

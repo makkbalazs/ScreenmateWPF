@@ -25,11 +25,6 @@ namespace Screenmate.Animation
             _canvasWindow.Show();
         }
 
-        public void ShowImage(int posx, int posy)
-        {
-
-        }
-
         public void moveRon(double x, double y)
         {
             _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.moveRon(x, y));

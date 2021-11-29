@@ -102,7 +102,6 @@ namespace Screenmate.Controllers
         /// </summary>
         private void UpdateUsageStatistics()
         {
-            double CPUUsage = 0.0, memoryUsage = 0.0;
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PerfFormattedData_PerfOS_Processor");
             var cpuTimes = searcher.Get()
                 .Cast<ManagementObject>()
@@ -113,6 +112,12 @@ namespace Screenmate.Controllers
                 }
                 )
                 .ToArray();
+
+            if(cpuTimes.Length > 0)
+            {
+                _CPUUsage = Convert.ToUInt32(cpuTimes[cpuTimes.Length - 1].Usage);
+            }
+            
 
             MEMORYSTATUSEX memStatus = new MEMORYSTATUSEX();
             if (Win32Methods.GlobalMemoryStatusEx(memStatus))
