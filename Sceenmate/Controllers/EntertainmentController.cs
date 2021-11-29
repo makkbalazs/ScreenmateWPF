@@ -104,11 +104,17 @@ namespace Screenmate.Controllers
             {
                 case WindowHandlingType.Move:
                     var moveableProcesses = _processes.Where(p => settings.ProcessesCanBeMoved?.Contains(p.ProcessName) ?? false);
-                    result = moveableProcesses.ElementAtOrDefault(_random.Next(0, moveableProcesses.Count() - 1));
+                    if (moveableProcesses.Count() > 0)
+                    {
+                        result = moveableProcesses.ElementAtOrDefault(_random.Next(0, moveableProcesses.Count() - 1));
+                    }
                     break;
                 case WindowHandlingType.Close:
                     var closeableProcesses = _processes.Where(p => settings.ProcessesCanBeClosed?.Contains(p.ProcessName) ?? false);
-                    result = closeableProcesses.ElementAtOrDefault(_random.Next(0, closeableProcesses.Count() - 1));
+                    if (closeableProcesses.Count() > 0)
+                    {
+                        result = closeableProcesses.ElementAtOrDefault(_random.Next(0, closeableProcesses.Count() - 1));
+                    }
                     break;
             }
             return result;

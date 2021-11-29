@@ -1,4 +1,5 @@
 ﻿using Screenmate.ViewModels;
+using System;
 using System.Windows;
 
 namespace Screenmate.Views
@@ -22,6 +23,12 @@ namespace Screenmate.Views
             DataContext = viewModel;
 
             _ = viewModel.OnNavigatedTo();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Application.Current.Shutdown();
         }
     }
 }
