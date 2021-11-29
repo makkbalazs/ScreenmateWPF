@@ -26,5 +26,9 @@ namespace Screenmate.Animation
         void showData(string data);
 
         void hideData();
+
+        void showRon();
+
+        void hideRon();
     }
 }

@@ -47,6 +47,7 @@ namespace Screenmate.Controllers
             ISettings settings = SettingsService.Instance;
             if (settings.Enabled)
             {
+                AnimationService.Instance.showRon();
                 UpdateCursorPos();
                 if(settings.WanderingEnabled)
                 {
@@ -57,6 +58,7 @@ namespace Screenmate.Controllers
                     FollowCursor();
                 }
             }
+            else AnimationService.Instance.hideRon();
         }
 
         /// <summary>

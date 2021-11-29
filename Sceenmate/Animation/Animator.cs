@@ -69,6 +69,16 @@ namespace Screenmate.Animation
         {
             _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.hideData());
         }
+
+        public void showRon()
+        {
+            _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.showRon());
+        }
+
+        public void hideRon()
+        {
+            _canvasWindow.Dispatcher.Invoke(() => _canvasWindow.hideRon());
+        }
         #endregion
     }
 }

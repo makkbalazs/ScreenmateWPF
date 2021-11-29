@@ -27,8 +27,8 @@ namespace Screenmate
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            StartControllers();
             AnimationService.Instance.ShowTransparentWindow();
+            StartControllers();
         }
 
         /// <summary>

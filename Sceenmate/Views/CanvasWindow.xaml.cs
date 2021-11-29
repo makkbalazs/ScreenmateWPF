@@ -103,5 +103,15 @@ namespace Screenmate.Views
         {
             Monitor.Visibility = Visibility.Hidden;
         }
+
+        public void showRon()
+        {
+            Ron.Visibility = Visibility.Visible;
+        }
+
+        public void hideRon()
+        {
+            Ron.Visibility = Visibility.Hidden;
+        }
     }
 }
