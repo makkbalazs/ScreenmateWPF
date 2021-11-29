@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -85,6 +86,22 @@ namespace Screenmate.Views
         {
             Storyboard sb = FindResource("Bombing") as Storyboard;
             sb.Begin();
+        }
+
+        public void showMessage(string message)
+        {
+            MessageBox.Show(message);
+        }
+
+        public void showData(string message)
+        {
+            Monitor.Visibility = Visibility.Visible;
+            Monitor.Text = message;
+        }
+
+        public void hideData()
+        {
+            Monitor.Visibility = Visibility.Hidden;
         }
     }
 }
