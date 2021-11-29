@@ -1,6 +1,8 @@
 ﻿using Screenmate.MVVM;
 using Screenmate.Services;
 using System.Diagnostics;
+using System.Linq;
+using System.Management;
 
 namespace Screenmate.Controllers
 {
@@ -92,12 +94,19 @@ namespace Screenmate.Controllers
         /// </summary>
         private void UpdateUsageStatistics()
         {
-            Process[] processes = Process.GetProcesses();
             double CPUUsage = 0.0, memoryUsage = 0.0;
-            foreach(Process process in processes)
-            {
-                
-            }
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher("select * from Win32_PerfFormattedData_PerfOS_Processor");
+            var cpuTimes = searcher.Get()
+                .Cast<ManagementObject>()
+                .Select(mo => new
+                {
+                    Name = mo["Name"],
+                    Usage = mo["PercentProcessorTime"]
+                }
+                )
+                .ToArray();
+            var c = cpuTimes[cpuTimes.Length - 1].Usage;
+            //CPUUsage = (int)(cpuTimes.LastOrDefault()?.Usage ?? 0);
         }
         #endregion
     }

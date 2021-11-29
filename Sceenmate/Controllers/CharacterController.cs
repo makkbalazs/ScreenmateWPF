@@ -16,11 +16,11 @@ namespace Screenmate.Controllers
         /// <summary>
         /// The previous position of the cursor
         /// </summary>
-        private Win32Interop.Point _previousCursorPos;
+        private POINT _previousCursorPos;
         /// <summary>
         /// The current position of the cursor
         /// </summary>
-        private Win32Interop.Point _currentCursorPos;
+        private POINT _currentCursorPos;
 
         int afk;
         Vector ranDir;
@@ -85,7 +85,7 @@ namespace Screenmate.Controllers
         /// </summary>
         private void UpdateCursorPos()
         {
-            Win32Interop.Point cursorPos = new Win32Interop.Point();
+            POINT cursorPos = new POINT();
             if (Win32Methods.GetCursorPos(out cursorPos))
             {
                 System.Console.WriteLine(cursorPos.X.ToString() + "; " + cursorPos.Y.ToString() + '\n');
