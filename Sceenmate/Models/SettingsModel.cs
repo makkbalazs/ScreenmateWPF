@@ -373,7 +373,13 @@ namespace Screenmate.Models
         public uint CPUWarningThreshold
         {
             get { return _CPUWarningThreshold; }
-            set { SetField(ref _CPUWarningThreshold, value); }
+            set
+            {
+                if (value > 0 && value <= 100)
+                {
+                    SetField(ref _CPUWarningThreshold, value);
+                }
+            }
         }
 
         /// <summary>
@@ -390,7 +396,13 @@ namespace Screenmate.Models
         public uint MemoryWarningThreshold
         {
             get { return _memoryWarningThreshold; }
-            set { SetField(ref _memoryWarningThreshold, value); }
+            set
+            {
+                if (value > 0 && value <= 100)
+                {
+                    SetField(ref _memoryWarningThreshold, value);
+                }
+            }
         }
         #endregion
     }

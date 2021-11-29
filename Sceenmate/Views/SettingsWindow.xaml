@@ -6,12 +6,15 @@
         xmlns:local="clr-namespace:Screenmate.Views"
         mc:Ignorable="d"
         Title="SettingsWindow" Height="480" Width="400"
-        MinWidth="300">
+        MinWidth="300"
+        Background="NavajoWhite">
 
     <Window.Resources>
         <Style x:Key="SectionHeader" TargetType="TextBlock">
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Margin" Value="10,5"/>
+            <Setter Property="Background" Value="Sienna"/>
+            <Setter Property="Foreground" Value="NavajoWhite"/>
         </Style>
 
         <Style TargetType="CheckBox">
@@ -21,6 +24,11 @@
         <Style TargetType="TextBox">
             <Setter Property="FontFamily" Value="Courier New"/>
             <Setter Property="Margin" Value="10,5"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Sienna"/>
+            <Setter Property="Foreground" Value="NavajoWhite"/>
         </Style>
     </Window.Resources>
     
@@ -67,10 +75,16 @@
                 <CheckBox Content="Show memory usage" IsChecked="{Binding ShowMemoryUsage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <CheckBox Content="Enable warning" IsChecked="{Binding WarningEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <StackPanel Orientation="Horizontal">
-                    
+                    <TextBlock Text="Warn for CPU usage above:" Margin="10,0,0,0"/>
+                    <TextBox Text="{Binding CPUWarningThreshold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             InputScope="Number"
+                             Width="100"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    
+                    <TextBlock Text="Warn for memory usage above:" Margin="10,0,0,0"/>
+                    <TextBox Text="{Binding MemoryWarningThreshold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             InputScope="Number"
+                             Width="100"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
