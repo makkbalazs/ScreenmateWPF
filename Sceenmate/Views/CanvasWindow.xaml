@@ -45,7 +45,7 @@
     </Window.Resources>
 
     <Canvas Name="MyCanvas" Width="1920" Height="1080">
-        <Image x:Name="Ron" Height="160" Margin="0,0,0,0" Width="120" gif:ImageBehavior.AnimatedSource="/Images/RonDown2.png" Tag="0" Canvas.Left="351" Canvas.Top="170"/>
+        <Image x:Name="Ron" Height="160" Margin="0,0,0,0" Width="120" gif:ImageBehavior.AnimatedSource="/Images/RonDown2.png" Tag="0" Canvas.Left="351" Canvas.Top="170" Visibility="Hidden"/>
         <Image x:Name="Bomb" Height="160" Canvas.Left="900" Canvas.Top="180" Width="120" Source="/Images/Bomb.png" Visibility="Hidden"/>
         <Image x:Name="Draco" Height="160" Canvas.Left="2000" Canvas.Top="120" Width="120" gif:ImageBehavior.AnimatedSource="/Images/DracoFlyLeft.gif" Visibility="Hidden"/>
         <Image x:Name="Nuke" Height="800" Canvas.Left="607" Canvas.Top="140" Width="706" Visibility="Hidden" gif:ImageBehavior.AnimatedSource="/Images/Nuke.gif"/>
